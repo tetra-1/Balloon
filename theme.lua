@@ -24,6 +24,8 @@ theme.apply = function(theme_settings)
     options.message.font_color.red = theme_settings.message.dialogue.color.red
     options.message.font_color.green = theme_settings.message.dialogue.color.green
     options.message.font_color.blue = theme_settings.message.dialogue.color.blue
+    options.message.bold = theme_settings.message.bold or theme_settings.message.dialogue.bold or false
+    options.message.italic = theme_settings.message.italic or theme_settings.message.dialogue.italic or false
 
     options.message.dialogue = {}
     options.message.dialogue.alpha = theme_settings.message.dialogue.color.alpha
@@ -35,6 +37,8 @@ theme.apply = function(theme_settings)
     options.message.dialogue.gear = theme_settings.message.dialogue.gear
     options.message.dialogue.roe = theme_settings.message.dialogue.roe
     options.message.dialogue.emote = theme_settings.message.dialogue.emote
+    options.message.dialogue.bold = theme_settings.message.dialogue.bold or false
+    options.message.dialogue.italic = theme_settings.message.dialogue.italic or false
     options.message.stroke = {}
     options.message.dialogue.stroke = {}
     if theme_settings.message.dialogue.stroke then
@@ -61,6 +65,8 @@ theme.apply = function(theme_settings)
         options.message.system.gear = theme_settings.message.system.gear
         options.message.system.roe = theme_settings.message.system.roe
         options.message.system.emote = theme_settings.message.system.emote
+        options.message.system.bold = theme_settings.message.system.bold or false
+        options.message.system.italic = theme_settings.message.system.italic or false
         options.message.system.stroke = {}
         if theme_settings.message.system.stroke then
             options.message.system.stroke.width = theme_settings.message.system.stroke.width
@@ -89,6 +95,8 @@ theme.apply = function(theme_settings)
     options.name.font_color.red = theme_settings.npcname.color.red
     options.name.font_color.green = theme_settings.npcname.color.green
     options.name.font_color.blue = theme_settings.npcname.color.blue
+    options.name.bold = theme_settings.npcname.bold or false
+    options.name.italic = theme_settings.npcname.italic or false
     options.name.stroke = {}
     if theme_settings.npcname.stroke then
         options.name.stroke.width = theme_settings.npcname.stroke.width
@@ -145,6 +153,9 @@ theme.apply = function(theme_settings)
         else
             options.timer.stroke = options.message.stroke
         end
+
+        options.timer.bold = theme_settings.timer.bold or false
+        options.timer.italic = theme_settings.timer.italic or false
     else
         -- use prompt position and message font settings, if no timer settings exist in the theme
         options.timer.offset_x = theme_settings.prompt.offsetx
@@ -153,6 +164,9 @@ theme.apply = function(theme_settings)
         options.timer.font_size = options.message.font_size
         options.timer.font_color = options.message.font_color
         options.timer.stroke = options.message.stroke
+
+        options.timer.bold = options.message.bold
+        options.timer.italic = options.message.italic
     end
 
     return options
